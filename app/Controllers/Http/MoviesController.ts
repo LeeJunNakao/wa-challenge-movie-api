@@ -12,7 +12,6 @@ export default class MoviesController {
     try {
       const page = ctx.request.input("page");
 
-      await this.service.populateMovies();
       const movies = await this.service.getPaginated(page);
 
       return movies;
@@ -21,5 +20,11 @@ export default class MoviesController {
         .status(400)
         .send({ message: "Failed to get movies, please try again later" });
     }
+  }
+
+  public async refresh(ctx: HttpContextContract) {
+    try {
+      await this.service.populateMovies();
+    } catch (error) {}
   }
 }
