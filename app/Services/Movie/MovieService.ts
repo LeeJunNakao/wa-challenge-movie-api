@@ -1,7 +1,5 @@
-import { ModelPaginatorContract } from "@ioc:Adonis/Lucid/Orm";
 import { CreateMovieDto } from "App/Entities/Movie";
 import MovieModel from "App/Models/Movie";
-import { Movie } from "App/Entities/Movie";
 import axios from "axios";
 
 const PAGE_LIMIT = 10;
@@ -48,7 +46,7 @@ class MovieService {
         score: Number(m.rt_score),
       }));
 
-      await Movie.createMany(moviesDto);
+      await MovieModel.createMany(moviesDto);
     }
   }
 }
