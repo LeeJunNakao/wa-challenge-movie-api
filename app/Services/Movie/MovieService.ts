@@ -4,7 +4,7 @@ import axios from "axios";
 
 const PAGE_LIMIT = 10;
 
-type MoviesPayload = {
+export type MoviesPayload = {
   id: string;
   title: string;
   original_title: string;
