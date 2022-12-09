@@ -22,7 +22,7 @@ export default class MoviesController {
     }
   }
 
-  public async refresh(ctx: HttpContextContract) {
+  public async refresh() {
     try {
       await this.service.populateMovies();
     } catch (error) {}
