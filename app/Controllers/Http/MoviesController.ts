@@ -22,9 +22,15 @@ export default class MoviesController {
     }
   }
 
-  public async refresh() {
+  public async populate(ctx: HttpContextContract) {
     try {
       await this.service.populateMovies();
-    } catch (error) {}
+
+      ctx.response.status(201).send({ message: "Movies add successfully" });
+    } catch (error) {
+      ctx.response
+        .status(400)
+        .send({ message: "Failed to get movies, please try again later" });
+    }
   }
 }
