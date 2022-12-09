@@ -21,3 +21,4 @@
 import Route from "@ioc:Adonis/Core/Route";
 
 Route.get("/", async () => "Challenge WA: Movie - API");
+Route.get("/movies", "MoviesController.index");
