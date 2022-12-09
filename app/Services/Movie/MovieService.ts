@@ -28,8 +28,9 @@ class MovieService {
 
   public async populateMovies() {
     const [count] = await Movie.query().count("* as total");
+    const countTotal = count.$extras.total;
 
-    if (!count.$extras.total) {
+    if (!Number(countTotal)) {
       const externalMovies = await axios.get<MoviesPayload[]>(
         `${process.env.SEARCH_MOVIE_API_URL}/films`
       );
