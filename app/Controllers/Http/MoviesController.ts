@@ -1,11 +1,13 @@
 import type { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
-import MovieService from "App/Services/Movie/MovieService";
+import { mountService } from "App/Services/Movie";
+import MovieService from "App/Services/Movie/movie-service";
 
 export default class MoviesController {
   private service: MovieService;
 
   constructor() {
-    this.service = new MovieService();
+    const { service } = mountService();
+    this.service = service;
   }
 
   public async index(ctx: HttpContextContract) {

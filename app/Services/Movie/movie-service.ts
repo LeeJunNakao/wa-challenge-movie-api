@@ -20,14 +20,19 @@ export type MoviesPayload = {
 };
 
 class MovieService {
+  constructor(private model: typeof MovieModel) {
+    this.model = model;
+  }
+
   public async getPaginated(page: number) {
-    const movies = await MovieModel.query().paginate(page, PAGE_LIMIT);
+    const movies = await this.model.query().paginate(page, PAGE_LIMIT);
 
     return movies;
   }
 
   public async populateMovies() {
-    const [count] = await MovieModel.query().count("* as total");
+    const [count] = await this.model.query().count("* as total");
+
     const countTotal = count.$extras.total;
 
     if (!Number(countTotal)) {
@@ -46,7 +51,7 @@ class MovieService {
         score: Number(m.rt_score),
       }));
 
-      await MovieModel.createMany(moviesDto);
+      await this.model.createMany(moviesDto);
     }
   }
 }
