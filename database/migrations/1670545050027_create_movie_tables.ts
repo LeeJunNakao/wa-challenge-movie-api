@@ -13,8 +13,8 @@ export default class extends BaseSchema {
       table.string("producer");
       table.string("banner");
       table.string("movie_banner");
-      table.string("release_date");
-      table.string("rt_score");
+      table.integer("release_date");
+      table.integer("rt_score");
 
       table.timestamp("created_at", { useTz: true });
       table.timestamp("updated_at", { useTz: true });

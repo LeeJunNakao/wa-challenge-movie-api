@@ -1,4 +1,5 @@
-export type CreateMovieDto = {
+export type Movie = {
+  id: number;
   externalId: string;
   title: string;
   description: string;
@@ -8,3 +9,4 @@ export type CreateMovieDto = {
   releaseDate: number;
   score: number;
 };
+export type CreateMovieDto = Omit<Movie, "id">;

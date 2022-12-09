@@ -1,5 +1,7 @@
+import { ModelPaginatorContract } from "@ioc:Adonis/Lucid/Orm";
 import { CreateMovieDto } from "App/Entities/Movie";
-import Movie from "App/Models/Movie";
+import MovieModel from "App/Models/Movie";
+import { Movie } from "App/Entities/Movie";
 import axios from "axios";
 
 const PAGE_LIMIT = 10;
@@ -21,13 +23,13 @@ type MoviesPayload = {
 
 class MovieService {
   public async getPaginated(page: number) {
-    const movies = await Movie.query().paginate(page, PAGE_LIMIT);
+    const movies = await MovieModel.query().paginate(page, PAGE_LIMIT);
 
     return movies;
   }
 
   public async populateMovies() {
-    const [count] = await Movie.query().count("* as total");
+    const [count] = await MovieModel.query().count("* as total");
     const countTotal = count.$extras.total;
 
     if (!Number(countTotal)) {
