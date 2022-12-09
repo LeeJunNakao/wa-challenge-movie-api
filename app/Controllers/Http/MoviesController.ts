@@ -9,11 +9,17 @@ export default class MoviesController {
   }
 
   public async index(ctx: HttpContextContract) {
-    const page = ctx.request.input("page");
+    try {
+      const page = ctx.request.input("page");
 
-    await this.service.populateMovies();
-    const movies = await this.service.getPaginated(page);
+      await this.service.populateMovies();
+      const movies = await this.service.getPaginated(page);
 
-    return movies;
+      return movies;
+    } catch (error) {
+      ctx.response
+        .status(400)
+        .send({ message: "Failed to get movies, please try again later" });
+    }
   }
 }
