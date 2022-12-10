@@ -44,6 +44,6 @@ describe("Movie Controller", () => {
     const body = response.body();
 
     response.assertStatus(201);
-    assert.deepEqual(body, { message: "Movies add successfully" });
+    assert.deepEqual(body, { message: "Movies added successfully" });
   });
 });

@@ -1,0 +1,146 @@
+/movies:
+  get:
+    summary: Movies paginated
+    tags:
+      - Movies
+    security: []
+    description: The Films endpoint returns information about all of the Studio Ghibli films.
+    parameters:
+      - name: page
+        in:  query
+        required: false
+        type: number
+      
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Movies paginated
+        content:
+          application/json: 
+            schema:
+              type: object
+              properties:
+                meta:
+                  type: object
+                  description: Pagination metadata
+                  properties:
+                    total:
+                      type: number
+                      description: Total of movies
+                    per_page:
+                      type: number
+                      description: Max value of movies per page
+                    current_page:
+                      type: number
+                      description: Number of current page
+                    last_page:
+                      type: number
+                      description: Number of current page
+                data:
+                  type: array
+                  items:
+                    $ref: "#/definitions/Movies"
+              example:
+                meta:
+                  total: 22
+                  per_page: 10
+                  current_page: 3
+                  last_page: 3
+                  first_page: 1
+                  first_page_url: "/?page=1"
+                  last_page_url: "/?page=3"
+                  next_page_url:
+                  previous_page_url: "/?page=2"
+                data:
+                - id: 21
+                  external_id: d868e6ec-c44a-405b-8fa6-f7f0f8cfb500
+                  title: The Red Turtle
+                  description: A man set adrift by a storm wakes up on a beach. He discovers that
+                    he is on a deserted island with plenty of fresh water, fruit and a dense bamboo
+                    forest. He builds a raft from bamboo and attempts to sail away, but his raft is
+                    destroyed by an unseen monster in the sea, forcing him back to the island. He
+                    tries again with another, larger raft, but is again foiled by the creature. A
+                    third attempt again ends with the raft destroyed, but this time he is confronted
+                    by a giant red turtle, which stares at him, and forces him back to the island.
+                  director: Michaël Dudok de Wit
+                  producer: Toshio Suzuki, Isao Takahata, Vincent Maraval, Pascal Caucheteux, Grégoire
+                    Sorlat
+                  banner: https://image.tmdb.org/t/p/original/kjXdW5H3myRBmTMYgKayjphr2FA.jpg
+                  release_date: 2016
+                  score: 93
+                  created_at: '2022-12-09T16:03:39.442+00:00'
+                  updated_at: '2022-12-09T16:03:39.442+00:00'
+                - id: 22
+                  external_id: 790e0028-a31c-4626-a694-86b7a8cada40
+                  title: Earwig and the Witch
+                  description: An orphan girl, Earwig, is adopted by a witch and comes home to a spooky
+                    house filled with mystery and magic.
+                  director: Gorō Miyazaki
+                  producer: Toshio Suzuki
+                  banner: https://www.themoviedb.org/t/p/original/qMxpGzmmnY1jLd4p7EhhoW43wWF.jpg
+                  release_date: 2021
+                  score: 30
+                  created_at: '2022-12-09T16:03:39.443+00:00'
+                  updated_at: '2022-12-09T16:03:39.443+00:00'
+           
+/movies/populate:
+  get:
+    summary: Populate database
+    tags:
+      - Populate
+    description: Update api's database using the data source if database is empty
+    produces:
+      - application/json
+    responses:
+      201:
+        description: Success
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: Success message
+              example:
+                message: "Movies added successfully"
+
+      400:
+        description: Fail
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: Error message
+              example:
+                message: "Failed to get movies, please try again later"
+
+definitions:
+  Movies:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Unique identifier representing a specific film
+      title:
+        type: string
+        description: Title of the film
+      description:
+        type: string
+        description: Description of the film
+      director:
+        type: string
+        description: Director of the film
+      producer:
+        type: string
+        description: Producer of the film
+      release_date:
+        type: string
+        description: Release year of film
+      score:
+        type: string
+        description: Rotten Tomato score of film

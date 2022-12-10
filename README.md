@@ -37,6 +37,10 @@ docker compose up
   yarn dev
 ```
 
+### Documentação
+
+- Para acessar a documentação acesse o endpoint: `/docs`
+
 ## Projetos hospedados
 
 - [Origem dos dados ](http://ghibli-api.softdevelopments.com.br/)
