@@ -28,7 +28,7 @@ export default class MoviesController {
     try {
       await this.service.populateMovies();
 
-      ctx.response.status(201).send({ message: "Movies add successfully" });
+      ctx.response.status(201).send({ message: "Movies added successfully" });
     } catch (error) {
       ctx.response
         .status(400)
