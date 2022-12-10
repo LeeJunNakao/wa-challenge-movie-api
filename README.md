@@ -10,22 +10,20 @@ Para rodar o projeto, siga os seguintes passos:
 
 - Informe as variáveis de ambiente em um arquivo chamado ".env" na pasta raíz do projeto conforme o arquivo exemplo ".env.example".
 
-- Monte a imagem:  
-  
-```
-  docker build -t <NOME_DA_IMAGEM> .
-```
-
 - Inicie o container:
   
 ```
-docker run -d -p 3333:3333 --name <NOME_DO_CONTAINER> <NOME_DA_IMAGEM>
+docker compose up
 ```
 
 - Acesse pelo endereço: http://localhost:3333
 
 
 ### Linha de comando
+
+- Suba um servidor postgres.
+
+- Certifique que os dados das credenciais do posgres está corretamente informado no arquivo ".env".
 
 - Instale as dependências do projeto: 
 
