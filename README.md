@@ -16,6 +16,16 @@ Para rodar o projeto, siga os seguintes passos:
 docker compose up
 ```
 
+- Para rodar a migration, entre dentro do container
+```
+docker exec -ti <NOME_DO_CONTAINER> ash
+```
+
+- Dentro do container rode no console:
+```
+node ace migration:run
+```
+
 - Acesse pelo endereço: http://localhost:3333
 
 
@@ -29,6 +39,11 @@ docker compose up
 
 ```
   yarn install
+```
+
+- Rode a migration:
+```
+  node ace migration:run
 ```
 
 - Rode o servidor:
