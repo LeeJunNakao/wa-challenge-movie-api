@@ -85,7 +85,7 @@
                   updated_at: '2022-12-09T16:03:39.443+00:00'
            
 /movies/populate:
-  get:
+  post:
     summary: Populate database
     tags:
       - Populate
