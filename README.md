@@ -4,7 +4,7 @@ Este projeto consiste em uma API que retorna um catálogo de filmes paginado, e 
 
 ## Orientações
 
-Para rodar o projeto, siga os seguintes passos:
+## Para rodar o projeto, siga os seguintes passos:
 
 ### Docker
 
@@ -29,6 +29,28 @@ node ace migration:run
 - Acesse pelo endereço: http://localhost:3333
 
 
+### Dev container
+
+- Abra o projeto dentro do container através da extensão Dev container do VsCode.
+
+- Instale as dependências do projeto: 
+
+```
+  yarn install
+```
+
+- Rode a migration:
+```
+  node ace migration:run
+```
+
+- Rode o servidor
+```
+  yarn dev
+```
+
+- Acesse pelo endereço: http://localhost:3333
+
 ### Linha de comando
 
 - Suba um servidor postgres.
@@ -46,13 +68,21 @@ node ace migration:run
   node ace migration:run
 ```
 
-- Rode o servidor:
-
+- Rode o servidor
 ```
   yarn dev
 ```
+- Acesse pelo endereço: http://localhost:3333
 
-### Documentação
+## Para rodar testes automatizados
+
+- Rode o comando no console:
+
+```
+yarn test
+```
+
+## Documentação
 
 - Para acessar a documentação acesse o endpoint: `/documentation`
 
