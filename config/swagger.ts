@@ -12,9 +12,9 @@ export default {
     definition: {
       openapi: "3.0.0",
       info: {
-        title: "Application with swagger docs",
+        title: "W.A. Movie API documentation",
         version: "1.0.0",
-        description: "My application with swagger docs",
+        description: "An API where you can fetch a catalog of Ghibli movies",
       },
     },
 
