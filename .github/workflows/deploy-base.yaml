@@ -15,6 +15,7 @@ jobs:
       CLUSTER: wa-movie-api
       ECS_SERVICE: wa-movie-api-service
       IMAGE_NAME: wa-movie-api
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.HOST }}
     steps:
       - uses: actions/checkout@v3
 
