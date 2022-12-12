@@ -22,5 +22,5 @@ export default {
     basePath: "/",
   },
   mode: process.env.NODE_ENV === "production" ? "PRODUCTION" : "RUNTIME",
-  specFilePath: "assets/swagger.yml",
+  specFilePath: "/assets/swagger.yml",
 } as SwaggerConfig;
