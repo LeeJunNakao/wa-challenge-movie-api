@@ -10,7 +10,8 @@
     "format": "prettier --write .",
     "test": "node ace test",
     "test:unit": "node ace test unit",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "postbuild": "node ace swagger:generate && cp -a docs/ build/docs"
   },
   "eslintConfig": {
     "extends": [
