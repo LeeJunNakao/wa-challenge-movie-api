@@ -54,7 +54,7 @@ node ace migration:run
 
 ### Documentação
 
-- Para acessar a documentação acesse o endpoint: `/docs`
+- Para acessar a documentação acesse o endpoint: `/documentation`
 
 ## Projetos hospedados
 
